@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="40dp"
+        android:src="@drawable/ic_book" />
+
+    <!-- =============================================================================-->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        android:textSize="18sp"
+        android:hint="search">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textNoSuggestions"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- =============================================================================-->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="56dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp">
+
+        <com.balysv.materialripple.MaterialRippleLayout
+            android:id="@+id/ripple2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:mrl_rippleAlpha="0.1"
+            app:mrl_rippleColor="#14cba8"
+            app:mrl_rippleOverlay="true">
+
+            <Button
+                style="@style/button"
+                android:text="Sign in"
+                android:onClick="Search"
+                android:textColor="@android:color/darker_gray"
+                android:background="@drawable/background_btn2"/>
+        </com.balysv.materialripple.MaterialRippleLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</LinearLayout>
