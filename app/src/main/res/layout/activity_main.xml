@@ -56,7 +56,7 @@
 
             <Button
                 style="@style/button"
-                android:text="Sign in"
+                android:text="Go Start"
                 android:onClick="Search"
                 android:textColor="@android:color/darker_gray"
                 android:background="@drawable/background_btn2"/>

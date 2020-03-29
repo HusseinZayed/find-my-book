@@ -16,10 +16,12 @@ import java.util.ArrayList;
 // in inside this class send data to layout
 public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewHolder> {
 
-    ArrayList<Book> modelview;
+    private ArrayList<Book> modelview;
+    private setOnRecycleViewListener listener;
 
-    public myAdapter(ArrayList<Book> modelview) {
+    public myAdapter(ArrayList<Book> modelview , setOnRecycleViewListener listener) {
         this.modelview = modelview;
+        this.listener = listener;
 
     }
 
@@ -45,6 +47,14 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewHolder> {
         Book model = modelview.get(position);
         holder.author.setText("Author : "+model.getAuthor());
         holder.tilte.setText("Tilte : "+model.getTitle());
+        /*b1=model.getTitle();
+        b2=model.getCatogry();
+        b3=model.getDate();
+        b4=model.getRate();
+        b5=model.getVoteCount();
+        b6= model.getPageCount();
+        b7=model.getDescription();*/
+        holder.tilte.setTag(modelview.get(position));
 
 
     }
@@ -65,6 +75,20 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewHolder> {
             super(itemView);
             tilte=itemView.findViewById(R.id.txtTitle);
             author=itemView.findViewById(R.id.txtAuthor);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                  Book book = (Book) tilte.getTag();
+                    book.setTitle(book.getTitle());
+                    book.setCatogry(book.getCatogry());
+                    book.setDate(book.getDate());
+                    book.setRate(book.getRate());
+                    book.setVoteCount(book.getVoteCount());
+                    book.setPageCount(book.getPageCount());
+                    book.setDescription(book.getDescription());
+                    listener.onMyClick(book);
+                }
+            });
         }
     }
 }

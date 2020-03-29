@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">QuakeEarth</string>
+    <string name="Title">title</string>
+    <string name="category">category</string>
+    <string name="DatePublisher">DatePublisher</string>
+    <string name="Rate">rate</string>
+    <string name="VoteCount">vote count</string>
+    <string name="DESC">description</string>
+    <string name="pagecount">page number</string>
 </resources>

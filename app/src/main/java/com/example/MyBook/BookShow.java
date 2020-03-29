@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -44,7 +45,20 @@ public class BookShow extends AppCompatActivity implements LoaderManager.LoaderC
     //result from doBackground come in this function
     @Override
     public void onLoadFinished(@NonNull Loader<ArrayList<Book>> loader, ArrayList<Book> data) {
-        adapter = new myAdapter(data);
+        adapter = new myAdapter(data, new setOnRecycleViewListener() {
+            @Override
+            public void onMyClick(Book book) {
+                Intent intent = new Intent(getApplicationContext(),DetailsMyBook.class);
+                intent.putExtra("title",book.getTitle());
+                intent.putExtra("categry",book.getCatogry());
+                intent.putExtra("date",book.getDate());
+                intent.putExtra("rate",book.getRate());
+                intent.putExtra("page",book.getPageCount());
+                intent.putExtra("countVote",book.getVoteCount());
+                intent.putExtra("desc",book.getDescription());
+                startActivity(intent);
+            }
+        });
         lm = new GridLayoutManager(this,1);
         recyclerView.setLayoutManager(lm);
         recyclerView.setHasFixedSize(true);
